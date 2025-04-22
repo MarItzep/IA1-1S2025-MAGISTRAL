@@ -1,9 +1,100 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tarea: Regresión y Árbol de Decisión</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      background: #121212;
+      color: #e0e0e0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 40px;
+      background-color: #1e1e1e;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    h1, h2 {
+      color: #e6ebef;
+      margin-bottom: 20px;
+    }
+    p {
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      margin: 25px 0;
+      border-radius: 12px;
+      border: 2px solid #333;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    pre {
+      background-color: #263238;
+      color: #cfd8dc;
+      padding: 20px;
+      border-left: 5px solid #64b5f6;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      border-radius: 10px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    strong {
+      color: #81d4fa;
+    }
+  </style>
+</head>
 <body>
-<h2>Simple reflex agent: Vacuum cleaner</h2>
-<br>Link del codigo = https://github.com/MarItzep/IA1-1S2025-MAGISTRAL.git</br>
-<p id="log"></p>
-<script type="text/javascript" src="cleaner.js"></script>
+
+  <div class="container">
+    <h1>Regresión y Árbol de Decisión</h1>
+
+    <h2>Regresión con datos del INE</h2>
+    <p>
+      Se utilizaron datos del INE de Guatemala de los años 2000 a 2023. 
+      Se aplicó una regresión polinomial de grado 2 para analizar la tendencia creciente de la población.
+    </p>
+
+    <img src="grafica.png" alt="Gráfica de regresión poblacional">
+
+    <h2>Clasificación con Árbol de Decisión</h2>
+    <p>
+      Con 12 ejemplos y empleando los atributos <strong>Bar</strong>, <strong>Pat</strong> y <strong>Rain</strong>, se pueden realizar 12 ejemplos.
+      Se desarrolló un árbol de decisión que alcanza una exactitud del 100% al anticipar si alguien esperará o no.
+    </p>
+
+    <p><strong>Árbol generado:</strong></p>
+    <pre>
+|--- Pat <= 1.50
+|   |--- Pat <= 0.50
+|   |   |--- Bar <= 0.50
+|   |   |   |--- Rain <= 0.50
+|   |   |   |   |--- class: 0
+|   |   |   |--- Rain >  0.50
+|   |   |   |   |--- class: 1
+|   |   |--- Bar >  0.50
+|   |   |   |--- Rain <= 0.50
+|   |   |   |   |--- class: 1
+|   |   |   |--- Rain >  0.50
+|   |   |   |   |--- class: 0
+|   |--- Pat >  0.50
+|   |   |--- class: 0
+|--- Pat >  1.50
+|   |--- class: 1
+    </pre>
+
+    <p><strong>Precisión: </strong> 100%</p>
+  </div>
 
 </body>
 </html>
